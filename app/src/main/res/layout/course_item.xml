@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        >
+        <TextView
+            android:id="@+id/item_game_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11111"
+            android:layout_marginLeft="12dp"
+            android:layout_centerVertical="true"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/item_game_league"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="12dp"
+            android:layout_alignParentRight="true"
+            android:text="11111"
+            android:layout_centerVertical="true"
+            android:textSize="14sp"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        >
+        <TextView
+            android:id="@+id/stadium_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11111"
+            android:layout_marginLeft="12dp"
+            android:layout_centerVertical="true"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/item_game_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:text="北京国安                  广州恒大"
+        android:textColor="#2A6496"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+
+    <LinearLayout
+        android:id="@+id/percent_layout"
+        android:layout_width="280dp"
+        android:layout_height="25dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/home_score"
+            android:layout_width="83dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/rect_left_bg"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:text="@string/score1"/>
+
+        <TextView
+            android:id="@+id/game_status"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/rect_middle_bg"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:layout_weight="0.21"
+            android:text="@string/match_state"/>
+
+        <TextView
+            android:id="@+id/away_score"
+            android:layout_width="83dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/rect_right_bg"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:text="@string/score2"/>
+    </LinearLayout>
+
+    <View style="@style/divider_horizontal" />
+
+</LinearLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Activity.NewsDetail_Activity">
+
+    <item android:id="@+id/shoucang"
+        android:title="收藏"
+        android:orderInCategory="80"
+        app:showAsAction="ifRoom" />
+
+</menu>

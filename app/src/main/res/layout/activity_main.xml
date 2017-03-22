@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/bottomlinear"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:orientation="horizontal"
+        android:background="#FF2D2D">
+        <Button
+            android:id="@+id/sport_news"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:padding="-5dp"
+            android:textSize="14sp"
+            android:background="#FF2D2D"
+            android:text="体育新闻"
+            />
+        <Button
+            android:id="@+id/course"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:textSize="14sp"
+            android:background="#FF2D2D"
+            android:text="赛程"/>
+        <Button
+            android:id="@+id/scoreboard"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:textSize="14sp"
+            android:background="#FF2D2D"
+            android:text="积分榜"/>
+        <Button
+            android:id="@+id/collection"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:textSize="14sp"
+            android:background="#FF2D2D"
+            android:text="收藏"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/cursorarea"
+        android:layout_width="match_parent"
+        android:background="#FF2D2D"
+        android:orientation="horizontal"
+        android:layout_height="2dp">
+        <ImageView
+            android:id="@+id/cursor_btn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </ImageView>
+    </LinearLayout>
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/myviewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="12">
+    </android.support.v4.view.ViewPager>
+
+
+
+</LinearLayout>

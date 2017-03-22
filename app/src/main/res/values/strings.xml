@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">老球迷</string>
+    <string name="match_state">未开赛</string>
+    <string name="score1">0</string>
+    <string name="score2">0</string>
+    <string name="app_label">新闻搜索</string>
+    <string name="searchstring">新闻搜索,例:恒大</string>
+</resources>
