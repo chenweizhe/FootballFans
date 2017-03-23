@@ -23,21 +23,16 @@ import com.example.strivezhe_chen.footballfans.utils.SharepreferenceHelper2Passw
  */
 
 public class ForthFragment extends Fragment {
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_forth,container,false);
-
-        final PasswordInputView passwordInputView = (PasswordInputView) view.findViewById(R.id.passwordInputView);
-        Button button = (Button) view.findViewById(R.id.queren);
         SharepreferenceHelper2Password sharepreferenceHelper = new SharepreferenceHelper2Password();
         final String bendipassword = sharepreferenceHelper.getSharereference(getContext());
-        if (bendipassword.equals("")){
-            Intent intent = new Intent(getContext(), SettingPwdActivity.class);
-            startActivity(intent);
-        }else {
-            System.out.println(bendipassword);
-        }
+        final PasswordInputView passwordInputView = (PasswordInputView) view.findViewById(R.id.passwordInputView);
+        Button button = (Button) view.findViewById(R.id.queren);
+
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,5 +48,20 @@ public class ForthFragment extends Fragment {
             }
         });
         return view;
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if(isVisibleToUser){
+            SharepreferenceHelper2Password sharepreferenceHelper = new SharepreferenceHelper2Password();
+            String bendipassword = sharepreferenceHelper.getSharereference(getContext());
+            if (bendipassword.equals("")){
+                Intent intent = new Intent(getContext(), SettingPwdActivity.class);
+                startActivity(intent);
+            }else {
+                System.out.println(bendipassword);
+            }
+        }
     }
 }
