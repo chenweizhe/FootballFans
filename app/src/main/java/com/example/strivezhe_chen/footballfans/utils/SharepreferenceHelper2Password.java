@@ -24,6 +24,7 @@ public class SharepreferenceHelper2Password {
     }
 
     public String getSharereference(Context context){
+        System.out.println("取出密码");
         SharedPreferences sharedPreferences = context.getSharedPreferences(FILE_NAME,Context.MODE_PRIVATE);
         String password = sharedPreferences.getString("password","");
         return  password;

@@ -11,7 +11,6 @@
             android:id="@+id/item_game_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="11111"
             android:layout_marginLeft="12dp"
             android:layout_centerVertical="true"
             android:textSize="14sp"/>

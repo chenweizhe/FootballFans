@@ -125,7 +125,8 @@ public class ImageLoader {
             e.printStackTrace();
         }finally {
             try {
-                is.close();
+                if (is != null)
+                   is.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -147,6 +148,7 @@ public class ImageLoader {
 
     public void loadImage(int start,int end){
         for (int i = start;i <end;i++){
+
             String url = sportnewsAdapter.PicUrls[i];
             if (url.contains(".gif")){
                 ImageView imageView = (ImageView) listView.findViewWithTag(url);

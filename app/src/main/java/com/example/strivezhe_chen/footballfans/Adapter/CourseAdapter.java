@@ -107,10 +107,12 @@ public class CourseAdapter extends BaseAdapter {
 
     //long类型时间转换成string类型
     private String longToString(long time){
-        Date dt = new Date(time);
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT+8"));
-        return simpleDateFormat.format(dt);
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        Date dtDate = new Date(time*1000);
+  //      simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GTM+8"));
+        //String d  = simpleDateFormat.format(dtDate);
+        return simpleDateFormat.format(dtDate);
     }
 
     /**	联赛ID	英超=2，西甲=3，意甲=4，德甲=5，法甲=6，欧冠=9，中超=128，

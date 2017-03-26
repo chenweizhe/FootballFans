@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.strivezhe_chen.footballfans.Adapter.sportnewsAdapter;
 import com.example.strivezhe_chen.footballfans.HttpUtils.SportnewHttpUtils;
@@ -54,11 +55,18 @@ public class FirstFragment extends Fragment implements SwipeRefreshLayout.OnRefr
 
     @Override
     public void onRefresh() {
-
-        String pagenum = String.valueOf(page);
-        System.out.println("下拉刷新"+pagenum);
-        httpUtils.doHttpGet("足球","3",pagenum,getContext(),listView,swipeRefreshLayout);
-        page++;
+        if(page < 4){
+			String pagenum = String.valueOf(page);
+           System.out.println("下拉刷新"+pagenum);
+           httpUtils.doHttpGet("足球","2",pagenum,getContext(),listView,swipeRefreshLayout);
+           page++;
+		}else{
+            Toast.makeText(getContext(),"已加载到最新内容",Toast.LENGTH_SHORT).show();
+            if (swipeRefreshLayout.isRefreshing()){
+                swipeRefreshLayout.setRefreshing(false);
+            }
+		}
+        
     }
 
 }

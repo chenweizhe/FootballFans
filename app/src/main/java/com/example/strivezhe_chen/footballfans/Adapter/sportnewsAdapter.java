@@ -113,14 +113,16 @@ public class sportnewsAdapter extends BaseAdapter implements AbsListView.OnScrol
 
     @Override
     public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-        start = firstVisibleItem;
-        end = firstVisibleItem+visibleItemCount;
 
-        //第一次显示调用
-        if (firstIn && visibleItemCount >0){
-            imageLoader.loadImage(0,totalItemCount);
-            firstIn = false;
-        }
+            start = firstVisibleItem;
+            end = firstVisibleItem+visibleItemCount;
+
+            //第一次显示调用
+            if (firstIn && visibleItemCount >0){
+                imageLoader.loadImage(0,totalItemCount);
+                firstIn = false;
+            }
+
     }
 
 

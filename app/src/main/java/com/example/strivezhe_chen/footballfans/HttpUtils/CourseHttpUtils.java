@@ -64,10 +64,10 @@ public class CourseHttpUtils {
                     jsonbean = (JSONObject) array.get(i);
                     if (jsonbean.getInteger("home_score") == null){
                         bean = new CourseBean(jsonbean.getInteger("league_id"),jsonbean.getString("home_name"),jsonbean.getString("away_name"),
-                                jsonbean.getInteger("match_date"),0,0,jsonbean.getInteger("game_status"),jsonbean.getString("stadium_name"));
+                                jsonbean.getInteger("match_date_cn"),0,0,jsonbean.getInteger("game_status"),jsonbean.getString("stadium_name"));
 
                     }else {
-                        bean = new CourseBean(jsonbean.getInteger("league_id"),jsonbean.getString("home_name"),jsonbean.getString("away_name"),jsonbean.getInteger("match_date"),jsonbean.getInteger("home_score"),jsonbean.getInteger("away_score"),jsonbean.getInteger("game_status"),jsonbean.getString("stadium_name"));
+                        bean = new CourseBean(jsonbean.getInteger("league_id"),jsonbean.getString("home_name"),jsonbean.getString("away_name"),jsonbean.getInteger("match_date_cn"),jsonbean.getInteger("home_score"),jsonbean.getInteger("away_score"),jsonbean.getInteger("game_status"),jsonbean.getString("stadium_name"));
 
                     }
                     beanList.add(bean);

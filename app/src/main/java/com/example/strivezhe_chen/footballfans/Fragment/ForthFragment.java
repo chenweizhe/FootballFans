@@ -28,8 +28,7 @@ public class ForthFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_forth,container,false);
-        SharepreferenceHelper2Password sharepreferenceHelper = new SharepreferenceHelper2Password();
-        final String bendipassword = sharepreferenceHelper.getSharereference(getContext());
+
         final PasswordInputView passwordInputView = (PasswordInputView) view.findViewById(R.id.passwordInputView);
         Button button = (Button) view.findViewById(R.id.queren);
 
@@ -37,7 +36,9 @@ public class ForthFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                SharepreferenceHelper2Password sharepreferenceHelper = new SharepreferenceHelper2Password();
+                final String bendipassword = sharepreferenceHelper.getSharereference(getContext());
+                System.out.println("---------"+bendipassword);
                String password = passwordInputView.getText().toString();
                 if (password.equals(bendipassword)){
                     Intent intent = new Intent(getContext(),ShoucangActivity.class);

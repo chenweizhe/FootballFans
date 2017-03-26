@@ -161,9 +161,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()){
-            case R.id.share:
-                Toast.makeText(this,"分享",Toast.LENGTH_SHORT).show();
-                return true;
             case R.id.setting:
                 Intent intent = new Intent(this, SettingActivity.class);
                 startActivity(intent);

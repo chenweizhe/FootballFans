@@ -24,6 +24,7 @@ public class ListDataSave {
      * @param datalist
      */
     public void setDataList(List<Beants2.ShowapiResBodyBean.PagebeanBean.ContentlistBean> datalist,Context context) {
+        System.out.println("存储收藏");
         SharedPreferences sharedPreferences = context.getSharedPreferences(FILE_NAME,Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         if (null == datalist || datalist.size() <= 0)
@@ -53,6 +54,14 @@ public class ListDataSave {
         datalist = gson.fromJson(strJson, new TypeToken<List<Beants2.ShowapiResBodyBean.PagebeanBean.ContentlistBean>>() {
         }.getType());
         return datalist;
-
     }
+
+    public void RemoveSharePreferenceData(Context context){
+        System.out.println("remove Data");
+        SharedPreferences sharedPreferences = context.getSharedPreferences(FILE_NAME,Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.remove("shoucang");
+        editor.apply();
+    }
+
 }
