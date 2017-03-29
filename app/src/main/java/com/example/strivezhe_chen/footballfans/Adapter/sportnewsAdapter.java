@@ -20,21 +20,22 @@ import com.example.strivezhe_chen.footballfans.Holder.sportnewsViewHolder;
 import com.example.strivezhe_chen.footballfans.Modal.Beants2;
 import com.example.strivezhe_chen.footballfans.Modal.SportnewsBean;
 import com.example.strivezhe_chen.footballfans.R;
-import com.example.strivezhe_chen.footballfans.utils.ImageLoader;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 /**
  * Created by StriveZhe_Chen on 2017/3/2.
- *
+ * 需要持久化请求数据---》
  */
 
-public class sportnewsAdapter extends BaseAdapter implements AbsListView.OnScrollListener, AdapterView.OnItemClickListener {
+public class sportnewsAdapter extends BaseAdapter implements AdapterView.OnItemClickListener {
     private List<Beants2.ShowapiResBodyBean.PagebeanBean.ContentlistBean> mData;
 
     private LayoutInflater inflater;
-    private ImageLoader imageLoader;
-    private int start,end;
+    private  Context context;
+  //  private ImageLoader imageLoader;
+ //   private int start,end;
 
 
     public static String[] PicUrls;
@@ -42,9 +43,10 @@ public class sportnewsAdapter extends BaseAdapter implements AbsListView.OnScrol
     public sportnewsAdapter(Context context, List<Beants2.ShowapiResBodyBean.PagebeanBean.ContentlistBean> mData, ListView sportListView) {
 
         inflater = LayoutInflater.from(context);
+        this.context = context;
         this.mData = mData;
 
-        imageLoader = new ImageLoader(sportListView);
+      //  imageLoader = new ImageLoader(sportListView);
         //注册listview的滚动监听事件
         PicUrls = new String[mData.size()];
         for (int i=0; i<mData.size();i++){
@@ -52,8 +54,7 @@ public class sportnewsAdapter extends BaseAdapter implements AbsListView.OnScrol
         }
 
         firstIn = true;
-
-        sportListView.setOnScrollListener(this);
+        
         sportListView.setOnItemClickListener(this);
     }
 
@@ -88,11 +89,13 @@ public class sportnewsAdapter extends BaseAdapter implements AbsListView.OnScrol
         }else {
             viewHolder = (sportnewsViewHolder) convertView.getTag();
         }
-        viewHolder.sportnews_pic.setImageResource(R.mipmap.newssquarepic2);
+       // viewHolder.sportnews_pic.setImageResource(R.mipmap.newssquarepic2);
 //        String url = mData.get(position).getImageurls();
+        //加载图片
+        Picasso.with(context).load(mData.get(position).getImageurls().get(0).getUrl()).error(R.mipmap.newssquarepic2).into(viewHolder.sportnews_pic);
         String url = mData.get(position).getImageurls().get(0).getUrl();
         viewHolder.sportnews_pic.setTag(url);
-        imageLoader.showImageByAsyncTask(viewHolder.sportnews_pic,url);
+        //imageLoader.showImageByAsyncTask(viewHolder.sportnews_pic,url);
         viewHolder.ic_tag.setText("新闻资讯");
         viewHolder.sportnews_title.setText(mData.get(position).getTitle());
         viewHolder.sportnews_desc.setText(mData.get(position).getDesc());
@@ -100,30 +103,7 @@ public class sportnewsAdapter extends BaseAdapter implements AbsListView.OnScrol
     }
 
 
-    @Override
-    public void onScrollStateChanged(AbsListView view, int scrollState) {
-        if (scrollState == SCROLL_STATE_IDLE){
-            //加载可见项
-            imageLoader.loadImage(start,end);
-        }else {
-            //停止可见项
-            imageLoader.cancelAllTasks();
-        }
-    }
 
-    @Override
-    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-
-            start = firstVisibleItem;
-            end = firstVisibleItem+visibleItemCount;
-
-            //第一次显示调用
-            if (firstIn && visibleItemCount >0){
-                imageLoader.loadImage(0,totalItemCount);
-                firstIn = false;
-            }
-
-    }
 
 
     @Override

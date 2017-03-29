@@ -110,8 +110,6 @@ public class CourseAdapter extends BaseAdapter {
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         Date dtDate = new Date(time*1000);
-  //      simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GTM+8"));
-        //String d  = simpleDateFormat.format(dtDate);
         return simpleDateFormat.format(dtDate);
     }
 
