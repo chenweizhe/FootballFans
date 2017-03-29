@@ -1,5 +1,8 @@
 package com.example.strivezhe_chen.footballfans.Fragment;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -40,11 +43,13 @@ public class FirstFragment extends Fragment implements SwipeRefreshLayout.OnRefr
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
-
-        httpUtils.doHttpGet("足球","5","1",getContext(),listView,swipeRefreshLayout);
-
-        swipeRefreshLayout.setOnRefreshListener(this);
-
+        if(isNetworkConnected(getContext())){
+            httpUtils.doHttpGet("足球","5","1",getContext(),listView,swipeRefreshLayout);
+            swipeRefreshLayout.setOnRefreshListener(this);
+        }else {
+            Toast.makeText(getContext(),"network error 请检查网络",Toast.LENGTH_SHORT).show();
+            swipeRefreshLayout.setRefreshing(false);
+        }
         return view;
     }
 
@@ -69,4 +74,19 @@ public class FirstFragment extends Fragment implements SwipeRefreshLayout.OnRefr
         
     }
 
+
+    /**
+     * 判断网络连接。。
+     */
+    public  boolean isNetworkConnected(Context context) {
+        if (context != null) {
+            ConnectivityManager mConnectivityManager = (ConnectivityManager) context
+                    .getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
+            if (mNetworkInfo != null) {
+                return mNetworkInfo.isAvailable();
+            }
+        }
+        return false;
+    }
 }

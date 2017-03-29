@@ -44,7 +44,7 @@ public class SportnewHttpUtils{
         requestParams.addBodyParameter("needContent","0");
         requestParams.addBodyParameter("needAllList","0");
         requestParams.addBodyParameter("needHtml","0");
-        //requestParams.setConnectTimeout(15000);
+        requestParams.setConnectTimeout(15000);
         x.http().get(requestParams, new Callback.CommonCallback<String>() {
 
             @Override
@@ -68,9 +68,9 @@ public class SportnewHttpUtils{
 
             @Override
             public void onCancelled(CancelledException cex) {
-//                if(swipeRefreshLayout.isRefreshing()){
-//                    swipeRefreshLayout.setRefreshing(false);
-//                }
+                if(swipeRefreshLayout.isRefreshing()){
+                    swipeRefreshLayout.setRefreshing(false);
+                }
             }
 
             @Override
