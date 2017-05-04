@@ -54,7 +54,7 @@ public class sportnewsAdapter extends BaseAdapter implements AdapterView.OnItemC
         }
 
         firstIn = true;
-        
+
         sportListView.setOnItemClickListener(this);
     }
 
