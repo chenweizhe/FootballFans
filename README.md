@@ -1,3 +1,6 @@
-# FootballFans
-### a program for a student oline who is paying for me
+# <center>**FootballFans**</center>
+### **这个小项目是一个毕设外包，赚了几百块钱，主要内容是通过软件可以看新闻，中超赛程，中超积分，收藏新闻，还有改变软件字体，虽然体量不大，不过是第一个独立完成的外包作品，纪念一下**
+----
+![](https://github.com/chenweizhe/FootballFans/raw/master/screenshot/S70507-011018.jpg =300x200)
+
 #### power by xutils3 Gson Fastjson 
